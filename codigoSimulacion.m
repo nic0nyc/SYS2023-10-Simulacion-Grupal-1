@@ -8,7 +8,7 @@ t = [0:ts:size(archivo.tom)/fs - ts];
 x = archivo.tom;    % Obtención de los datos de la muestra
 
 % Reproducción del sonido de los datos
-% sound(archivo.tom)
+% sound(archivo.tom, fs)
 
 % Gráfico del audio como referencia
 figure
@@ -74,4 +74,4 @@ title('Ecuación de síntesis')
 xlabel('Tiempo (s)')
 
 % Reproducción del sonido para comparar con la muestra
-% sound(xSintesisdB)
+% sound(xSintesisdB, fs)
