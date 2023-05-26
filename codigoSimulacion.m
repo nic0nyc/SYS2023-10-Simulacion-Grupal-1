@@ -40,7 +40,7 @@ xlabel('Tiempo (s)')
 % Cálculo de la transformada de Fourier. 
 % (Código obtenido del ejemplo 4.0 entregado por el profesor en canvas)
 N = 1024; % tamaño de la Fast Fourier Transform (FFT)
-X = fft(xCuerda, N); % FFT es habitualmente compleja, X(1) contiene componente 
+X = fft(x, N); % FFT es habitualmente compleja, X(1) contiene componente 
 % continua. N es el tamaño de la secuencia. Usar potencia de 2 para que
 % el algoritmo sea mas eficiente
 
