@@ -20,15 +20,16 @@ App = max(x) - min(x);  % Amplitud peak-to-peak
 
 % Obtención de los limites para la sumatoria de la potencia en base al vector de tiempo
 limiteInf = find(t==1.36);
-limiteSup = find(t==1.37);
+limiteSupPotencia = find(t==1.46);
+limiteSupGrafico = find(t==1.37);
 
 % Cálculo de la potencia
-potencia = sum(abs(x(limiteInf:limiteSup)).^2) / (limiteSup - limiteInf)
+potencia = sum(abs(x(limiteInf:limiteSupPotencia)).^2) / (limiteSupPotencia - limiteInf)
 
 % Creación del vector de tiempo y datos de la primera cuerda 
 % (desde que comienza hasta 10ms después)
-tCuerda = t(limiteInf:limiteSup);   
-xCuerda = x(limiteInf:limiteSup);
+tCuerda = t(limiteInf:limiteSupGrafico);   
+xCuerda = x(limiteInf:limiteSupGrafico);
 
 % Gráfico de la primera cuerda (desde que comienza hasta 10ms después)
 figure
@@ -45,7 +46,6 @@ X = fft(xCuerda, N); % FFT es habitualmente compleja, X(1) contiene componente
 
 df = fs/N; % resolución de frecuencia en Hz para el grafico
 Index = 0:N-1; % para el grafico de la FFT
-f = Index*df; % indice del eje x convertido a frecuencia
 
 Y = fftshift(abs(X));
 sf = ([0:N-1]-round((N-1)/2))*df;
